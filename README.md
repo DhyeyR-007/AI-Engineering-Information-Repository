@@ -1,6 +1,6 @@
 # AI engineering system architecture: how everything connects
 
-This document explains all 26 key concepts in AI engineering (2026) and how they connect into one complete system. Read from top to bottom — each section builds on the previous one.
+This document explains all 26 key concepts in AI engineering (2026) and how they connect into one complete system. Read from top to bottom as each section builds on the previous one.
 
 ---
 
@@ -34,7 +34,7 @@ LLMOps and observability monitor every step. Evaluation measures quality. FastAP
 
 ### 1. Fine-tuning (LoRA / QLoRA)
 
-Fine-tuning customises a base LLM on your own data. It changes the model's behaviour — how it writes, what tone it uses, what domain knowledge it has. This happens once, before you deploy the system. It is not a runtime step.
+Fine-tuning customises a base LLM on your own data. It changes the model's behaviour i.e. how it writes, what tone it uses, what domain knowledge it has. This happens once, before you deploy the system. It is not a runtime step.
 
 LoRA (Low-Rank Adaptation) lets you fine-tune a large model by training only a small number of extra parameters, so you can do it on modest hardware (a single GPU). QLoRA adds quantisation to reduce memory usage further.
 
@@ -117,7 +117,7 @@ Context engineering has replaced prompt engineering as the core production skill
 
 ### 8. LLM (structured output)
 
-The LLM receives the assembled context and produces an output. In a production system, this output is not free-form text. It is structured output — usually JSON in a specific format that your code can parse reliably.
+The LLM receives the assembled context and produces an output. In a production system, this output is not free-form text. It is structured output, usually JSON in a specific format that your code can parse reliably.
 
 What the LLM does at this step:
 
@@ -131,13 +131,13 @@ The structured output format is what makes the system programmable. Your code re
 
 ### 9. The three branches: what the LLM can decide to do
 
-After the LLM reasons about the task, it takes one of three paths. These paths are not exclusive — in a single loop, the LLM might retrieve knowledge AND call a tool.
+After the LLM reasons about the task, it takes one of three paths. These paths are not exclusive i.e. in a single loop, the LLM might retrieve knowledge AND call a tool.
 
 ---
 
 #### Branch A: needs knowledge → RAG
 
-RAG (Retrieval-Augmented Generation) gives the LLM access to your own data — documents, databases, knowledge bases — that it was not trained on.
+RAG (Retrieval-Augmented Generation) gives the LLM access to your own data like documents, databases, knowledge bases, that it wasn't trained on.
 
 How RAG works, step by step:
 
@@ -159,7 +159,7 @@ RAG variants:
 - Basic RAG — text documents, single query, single retrieval.
 - Multimodal RAG — retrieves across text AND images. Uses CLIP or similar models to embed both modalities into the same vector space. Directly relevant to your VPR background.
 - Graph RAG — uses a knowledge graph (nodes and relationships stored in Neo4j or similar) instead of or alongside a vector database. Better for questions that require connecting facts across multiple documents ("which companies that were founded in 2020 also received Series B funding?").
-- Agentic RAG — the agent controls the retrieval process. Instead of a single query → retrieve → answer flow, the agent decides when to retrieve, formulates its own queries, evaluates whether the results are sufficient, and retrieves again if needed. This is the bridge between RAG and agentic AI — the most valuable skill combination.
+- Agentic RAG — the agent controls the retrieval process. Instead of a single query → retrieve → answer flow, the agent decides when to retrieve, formulates its own queries, evaluates whether the results are sufficient, and retrieves again if needed. This is the bridge between RAG and agentic AI, the most valuable skill combination.
 
 Framework: LlamaIndex is specifically built for RAG pipelines — data loading, chunking, indexing, retrieval, and query engines.
 
